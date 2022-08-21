@@ -19,6 +19,7 @@ public class EjercicioRedesSociales {
     public static void main(String[] args) throws FileNotFoundException{
         // TODO code application logic here
         
+        //leer archivo csv
         File getCSVFiles = new File(System.getProperty("user.dir")+"\\src\\ejercicioredessociales\\presenciaredes.csv");
         Scanner sc = new Scanner(getCSVFiles);
         sc.useDelimiter(";");
@@ -28,6 +29,8 @@ public class EjercicioRedesSociales {
         }
         
         sc.close();
+        
+        //Diferencia de segu
         
     }
     
