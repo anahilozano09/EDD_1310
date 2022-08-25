@@ -11,21 +11,34 @@ package clasearreglo;
 public class Arreglo {
     
     int tamano;
+    int index;
+    int index2;
+    String valor1;
+    String valor2;
 
     public Arreglo() {
     }
 
     public Arreglo(int tamano) {
         this.tamano = tamano;
+        
+        for (int i = 0; i < tamano ; i++) {
+            
+        }
+        
     }
     
-    public String setElemento(int index, String valor) {
+    public void setElemento(int index, String valor) {
         
-        
+        for (int j = 0; j < tamano; j++) {
+            if ( j == index ){
+                System.out.println(valor);
+            }
+        }
         
     }
     
-    public String getElemento(int index) {
+    public void getElemento(int index2) {
         
         
         
@@ -37,6 +50,10 @@ public class Arreglo {
         
     }
     
-    
+    public void limpiar (String valor2) {
+        this.valor2 = valor2;
+        
+        
+    }
     
 }

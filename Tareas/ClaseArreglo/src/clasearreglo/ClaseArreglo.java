@@ -18,7 +18,8 @@ public class ClaseArreglo {
         
         Arreglo celulares = new Arreglo(5);
         System.out.println("Tamaño del arreglo: " + celulares.getLenght());
-        
+        Celular a1 = new Celular("Xiaomi", "Redmi 9", 6.53f, 64);
+        System.out.println(a1);     
     }
     
 }

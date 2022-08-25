@@ -59,7 +59,7 @@ public class Celular {
 
     @Override
     public String toString() {
-        return "Celular{" + "marca=" + marca + ", modelo=" + modelo + ", pulgadas=" + pulgadas + ", almacenamiento=" + almacenamiento + '}';
+        return "Celular{" + "marca=" + marca + ", modelo=" + modelo + ", pulgadas=" + pulgadas + ", almacenamiento=" + almacenamiento + " GB" + '}';
     }
     
     
