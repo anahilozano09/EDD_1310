@@ -27,18 +27,25 @@ public class NominaADT {
         try {
             
             BufferedReader archivo = new BufferedReader(new FileReader(ruta));
-            String fila = archivo.readLine();
-            int contador = 0;
+            archivo.readLine();
+            String fila = null;
             
-            while(fila != null){
-                String datos[] = fila.split(",");
-                System.out.println(fila);
-                fila = archivo.readLine();
-                contador++;
+            
+            while((fila = archivo.readLine()) != null){
+                String[] campos = fila.split(",");
+                Empleado emp = new Empleado();
+                
+                emp.setId(Integer.parseInt(campos[0]));
+                emp.setNombre(campos[1]);
+                emp.setPaterrno(campos[2]);
+                emp.setMaterno(campos[3]);
+                emp.setHorasExtra(Integer.parseInt(campos[4]));
+                emp.setSueldoBase(Integer.parseInt(campos[5]));
+                emp.setAnioIngreso(Integer.parseInt(campos[6]));
+                
+                System.out.println(emp);
+                System.out.println("Sueldo Total = " + emp.calcularSueldo());
             }
-            
-            
-            
             
         } 
         
@@ -52,21 +59,14 @@ public class NominaADT {
     }
     
     /*
-    
-    public void calcularSueldos(){
-        for (int i = 0; i < arreglo.getTamanio(); i++) {
-            System.out.print(empleados.getElemento().calcularSueldo());
-        }
-    }
-    
-    public void obtener_max_min(){
+        public void obtener_max_min(){
         
         int min = 29999999;
         int max = 0;
         Empleado  empMax;
         Empleado  empMin;
         
-        for (Empleado e : empleados) {
+        for (Empleado e : contador) {
             if(e.getAnioIngreso()>max){
                 max = e.getAnioIngreso();
                 empMax = e;
@@ -78,7 +78,6 @@ public class NominaADT {
             }
         }
         
-    }
-    
-    */
+    } */
+
 }

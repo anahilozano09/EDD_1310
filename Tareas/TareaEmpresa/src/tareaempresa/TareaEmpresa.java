@@ -18,7 +18,7 @@ public class TareaEmpresa {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        NominaADT lista = new NominaADT("D:\\Documentos\\ICO\\Tercer Semestre\\Estructura de Datos\\Programas\\TareaEmpresa\\src\\ico\\fes\\recursos\\junio.dat");
+        NominaADT lista = new NominaADT("D:\\Documentos\\ICO\\Tercer Semestre\\Estructura de Datos\\Programas\\EDD_1310\\Tareas\\TareaEmpresa\\src\\ico\\fes\\recursos\\junio.dat");
         System.out.println(lista);
         
         
