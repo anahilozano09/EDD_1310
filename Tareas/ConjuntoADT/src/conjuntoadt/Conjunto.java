@@ -12,26 +12,28 @@ import java.util.ArrayList;
  */
 public class Conjunto <T>{
     
-    ArrayList<T> datos;
+    private ArrayList<T> datos = new ArrayList<>();
+    
+     public ArrayList<T> getDatos() {
+        return datos;
+    }
+
+    public void setDatos(ArrayList<T> datos) {
+        this.datos = datos;
+    }
     
     public int getLongitud(){
         return datos.size();
     }
     
-    public void contiene(T elemento){
-        T elm = elemento;
-        if(this.datos.contains(elm)){
-            System.out.println("True");
-        }
-        else{
-            System.out.println("False");
-        }
+    public boolean contiene(T elemento){
+        return this.datos.indexOf(elemento) != -1;
     }
     
     public void agregar(T dato){
         T agr = dato;
         if(this.datos.contains(agr)){
-            System.out.println("No se puede agregar un elemento que ya existe");
+            
         }
         else{
             datos.add(agr);
@@ -43,37 +45,70 @@ public class Conjunto <T>{
         if(this.datos.contains(tmp)){
             this.datos.remove(tmp);
         }
-        else{
-            System.out.println("El elemento a eliminar no existe");
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Conjunto<T> otroConjunto = (Conjunto)obj;
+        return this.getDatos().equals(otroConjunto.getDatos());
+    }
+    
+    
+    
+    public boolean esSubConjunto(Conjunto<T> otroConjunto){
+        
+        if(this.datos.size() > otroConjunto.getLongitud()){
+            return false;
         }
-    }
-    
-    public void equals(Conjunto<T> otroConjunto){
         
+        for (T dato : this.datos) {
+            if(!otroConjunto.contiene(dato)){
+                return false;
+            }
+        }
         
-    }
-    
-    public void esSubConjunto(Conjunto<T> otroConjunto){
+        return true;
         
     }
     
     public void union(Conjunto<T> otroConjunto){
         
-    }
-    
-    public void interseccion(Conjunto<T> otroConjunto){
+        for (T elm : otroConjunto.datos) {
+            this.agregar(elm);
+        }
         
     }
     
-    public void diferencia(Conjunto<T> otroConjunto){
+    public Conjunto<T> interseccion(Conjunto<T> otroConjunto){
+        Conjunto<T> almacenarConjunto = new Conjunto();
+        for (T dato : this.datos) {
+            if(otroConjunto.contiene(dato)){
+                almacenarConjunto.agregar(dato);
+            }
+        }
+        return almacenarConjunto;
+    }
+    
+    public Conjunto<T> diferencia(Conjunto<T> otroConjunto){
+        Conjunto<T> almacenarConjunto = new Conjunto();
+        for (T dato : this.datos) {
+            if(!otroConjunto.contiene(dato)){
+                almacenarConjunto.agregar(dato);
+            }
+        }
         
+        for (T dato : otroConjunto.datos) {
+            if(!this.datos.contains(dato)){
+                almacenarConjunto.agregar(dato);
+            }
+        }
+        
+        return almacenarConjunto;
     }
 
     @Override
     public String toString() {
-        return "Conjunto{" + "datos=" + datos + '}';
+        return datos.toString();
     }
-    
-    
-    
+      
 }
